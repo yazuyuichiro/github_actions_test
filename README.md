@@ -61,4 +61,7 @@ python main.py
 - GitHub Actions
 
 ## ライセンス
-MIT License 
+MIT License
+
+---
+**最終更新**: GitHub Actions テスト実行中 🚀 
