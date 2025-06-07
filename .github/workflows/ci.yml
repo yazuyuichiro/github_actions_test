@@ -32,13 +32,19 @@ jobs:
     
     - name: Create .env file for testing
       run: |
-        echo "APP_NAME=GitHub Actions Test App" >> .env
-        echo "APP_VERSION=2.1.0" >> .env
-        echo "ENVIRONMENT=ci" >> .env
-        echo "DEBUG=true" >> .env
-        echo "LOG_LEVEL=debug" >> .env
+        echo "APP_NAME=${{ secrets.APP_NAME }}" >> .env
+        echo "APP_VERSION=${{ secrets.APP_VERSION }}" >> .env
+        echo "ENVIRONMENT=${{ secrets.ENVIRONMENT }}" >> .env
+        echo "DEBUG=${{ secrets.DEBUG }}" >> .env
+        echo "LOG_LEVEL=${{ secrets.LOG_LEVEL }}" >> .env
     
     - name: Run Python script
+      env:
+        APP_NAME: ${{ secrets.APP_NAME }}
+        APP_VERSION: ${{ secrets.APP_VERSION }}
+        ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        DEBUG: ${{ secrets.DEBUG }}
+        LOG_LEVEL: ${{ secrets.LOG_LEVEL }}
       run: python main.py
     
     - name: Run basic tests
