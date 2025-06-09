@@ -5,9 +5,9 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main ]
-  schedule:
-    # 毎日午前9時（UTC）に自動実行 = 日本時間18時
-    - cron: '0 9 * * *'
+  # schedule:
+  #   # 毎日午前9時（UTC）に自動実行 = 日本時間18時
+  #   - cron: '0 9 * * *'
 
 jobs:
   test:
